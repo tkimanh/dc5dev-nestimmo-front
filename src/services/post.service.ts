@@ -24,3 +24,11 @@ export const createPost = async (createPostDTO: PostCreateDTO) => {
     const data = await response.json();
     return data;
 }
+
+export const deletePost = async (id: string) => {
+    const response = await fetch(`${POST_ENDPOINT}/${id}`, {
+        method: 'DELETE'
+    });
+    const data = await response.json();
+    return data;
+}
