@@ -35,7 +35,7 @@ const FormCategory = ({ setOpen }: FormPostProps) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="mb-2">
-        <Input type="text" placeholder="Category name" name="name" />
+        <Input type="text" placeholder="Category name" name="nom" />
       </div>
       <div>
         <Button type="submit" className="w-full" disabled={mutation.isPending}>
