@@ -42,8 +42,9 @@ const PostDetail = () => {
 
   return (
     <div>
-      <h1>{data.title}</h1>
-      <p>{data.description}</p>
+      <h1>Title : {data.title}</h1>
+      <p>Description : {data.description}</p>
+      <p>Category name : {data.category?.nom}</p>
 
       <DialogConfirmDelete
         handleDelete={handleDelete}

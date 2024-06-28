@@ -42,7 +42,7 @@ const CategoryDetail = () => {
 
   return (
     <div>
-      <h1>{data.nom}</h1>
+      <h1>Category name : {data.nom}</h1>
 
       <DialogConfirmDelete
         handleDelete={handleDelete}

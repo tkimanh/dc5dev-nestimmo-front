@@ -23,7 +23,9 @@ const PostList = () => {
         {data?.map((category: any) => (
           <div key={category.id} className="bg-white rounded-lg shadow-md p-4">
             <Link href={`/category/${category.id}`}>
-              <h3 className="text-lg font-medium mb-2">{category.nom}</h3>
+              <h3 className="text-lg font-medium mb-2">
+                Category name : {category.nom}
+              </h3>
             </Link>
           </div>
         ))}
