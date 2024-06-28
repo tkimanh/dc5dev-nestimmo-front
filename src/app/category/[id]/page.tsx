@@ -2,29 +2,29 @@
 
 import DialogConfirmDelete from "@/components/globals/DialogConfirmDelete";
 import { useToast } from "@/components/ui/use-toast";
-import { deletePost, fetchPostById } from "@/services/post.service";
+import { deleteCategory, fetchCategoryById } from "@/services/category.service";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 
-type PostDetailParams = {
+type CategoryDetailParams = {
   id: string;
 };
 
-const PostDetail = () => {
-  const { id } = useParams<PostDetailParams>();
+const CategoryDetail = () => {
+  const { id } = useParams<CategoryDetailParams>();
   const router = useRouter();
   const { toast } = useToast();
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
-    queryFn: () => fetchPostById(id),
+    queryKey: ["categoryData"],
+    queryFn: () => fetchCategoryById(id),
   });
 
   const mutation = useMutation({
-    mutationFn: deletePost,
+    mutationFn: deleteCategory,
     onSuccess: () => {
       toast({
-        title: "Post deleted",
+        title: "Category deleted",
         description: "Your post has been deleted",
       });
       router.push("/");
@@ -42,8 +42,7 @@ const PostDetail = () => {
 
   return (
     <div>
-      <h1>{data.title}</h1>
-      <p>{data.description}</p>
+      <h1>{data.nom}</h1>
 
       <DialogConfirmDelete
         handleDelete={handleDelete}
@@ -53,4 +52,4 @@ const PostDetail = () => {
   );
 };
 
-export default PostDetail;
+export default CategoryDetail;
