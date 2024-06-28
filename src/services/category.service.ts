@@ -1,19 +1,19 @@
 import { CategoryCreateDTO } from "@/types/category";
 import { CATEGORY_ENDPOINT } from "@/utils/constants";
 
-export const fetchAllPosts = async () => {
+export const fetchAllCategories = async () => {
   const response = await fetch(CATEGORY_ENDPOINT);
   const data = await response.json();
   return data;
 };
 
-export const fetchPostById = async (id: string) => {
+export const fetchCategoryById = async (id: string) => {
   const response = await fetch(`${CATEGORY_ENDPOINT}/${id}`);
   const data = await response.json();
   return data;
 };
 
-export const createPost = async (createCategoryDTO: CategoryCreateDTO) => {
+export const createCategory = async (createCategoryDTO: CategoryCreateDTO) => {
   const response = await fetch(CATEGORY_ENDPOINT, {
     method: "POST",
     headers: {
@@ -25,7 +25,7 @@ export const createPost = async (createCategoryDTO: CategoryCreateDTO) => {
   return data;
 };
 
-export const deletePost = async (id: string) => {
+export const deleteCategory = async (id: string) => {
   const response = await fetch(`${CATEGORY_ENDPOINT}/${id}`, {
     method: "DELETE",
   });
